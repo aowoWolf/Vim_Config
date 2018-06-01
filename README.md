@@ -3,23 +3,16 @@
 ###### KeyMap
 
 > 前三个快捷键用于转换界面模式，中间是切换vim模拟器，最后三个是对tab也进行的操作
-  1. 演示模式
-  2. 防止分心模式(又称免打扰模式)
-  3. 全屏模式
-  4. 切换vim模拟器
-  5. 把当前tab页移动到右边
-  6. 把当前tab页移动到下边
-  7. 把当前tab页面移动到对立的组
 
-| 快捷键             | 功能                           |
-| --------------- | ---------------------------- |
-| Alt + ;         | Toggle Presentation mode     |
-| Ctrl + Alt + ;  | Toggle Distraction Free mode |
-| Ctrl + ;        | Toggle Full Screen mode      |
-| Ctrl + Alt + W  | Vim Emulator                 |
-| Alt + Shift + . | Move Right                   |
-| Alt + Shift + M | Move Down                    |
-| Alt + Shift + , | Move To Opposite Group       |
+| 快捷键             | Description                  | 功能              |
+| --------------- | ---------------------------- | --------------- |
+| Alt + ;         | Toggle Presentation mode     | 演示模式            |
+| Ctrl + Alt + ;  | Toggle Distraction Free mode | 防止分心模式(又称免打扰模式) |
+| Ctrl + ;        | Toggle Full Screen mode      | 全屏模式            |
+| Ctrl + Alt + W  | Vim Emulator                 | 切换vim模拟器        |
+| Alt + Shift + . | Move Right                   | 把当前tab页移动到右边    |
+| Alt + Shift + M | Move Down                    | 把当前tab页移动到下边    |
+| Alt + Shift + , | Move To Opposite Group       | 把当前tab页面移动到对立的组 |
 
 
 ###### IdeaVim
