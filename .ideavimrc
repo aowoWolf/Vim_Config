@@ -72,7 +72,7 @@ nnoremap <Leader>mv :action ActivateMavenProjectsToolWindow<CR>
 nnoremap <Leader>oi :action OptimizeImports<CR>
 
 "等同于ctrl + Alt + F12
-nnoremap <Space>fp :action ShowFilePath<CR>
+nnoremap <Leader>fp :action ShowFilePath<CR>
 nnoremap <Leader>pm :action ShowPopupMenu<CR>
 
 " built in search looks better
