@@ -26,8 +26,7 @@ nnoremap <Leader>u  <C-u>
 " System clipboard
 vnoremap <Leader>y  "+y
 nnoremap <Leader>y  V"+y
-nnoremap <Leader>p  "*p
-nnoremap <Leader>P  "*P
+nnoremap <Leader>P  "*p
 
 " Insert mode shortcut,可以考虑使用硬编程键盘代替以下处理方式，减少对左手小拇指的损伤
 inoremap <C-h> <Left>
@@ -79,10 +78,8 @@ nnoremap <Leader>oi :action OptimizeImports<CR>
 nnoremap <Leader>fp :action ShowFilePath<CR>
 nnoremap <Leader>pm :action ShowPopupMenu<CR>
 
-" built in search looks better
-nnoremap / :action Find<CR>
-" but preserve ideavim search
-nnoremap <Leader>/ /
+" / operation is more commonly used
+nnoremap <Leader>/ :action Find<CR>
 
 nnoremap <Leader>cd :action ChooseDebugConfiguration<CR>
 
