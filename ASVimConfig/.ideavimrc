@@ -4,10 +4,10 @@ syntax enable "开启高亮
 set surround
 
 " Quit insert mode
-inoremap jj <Esc>
+" inoremap jj <Esc>
 inoremap jk <Esc>
-inoremap kj <Esc>
-inoremap kk <Esc>
+" inoremap kj <Esc>
+" inoremap kk <Esc>
 
 " Quit visual mode
 vnoremap v <Esc>
