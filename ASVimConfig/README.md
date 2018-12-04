@@ -23,5 +23,5 @@
   ![Vim Emulation](https://github.com/aowoWolf/Vim_Config/blob/master/Resource/Vim%20Emulation.png?raw=true)
 - `.ideavimrc` 中包含一些Android的action，可以让你成为AS中最骚的developer(☄⊙ω⊙)☄，当然 `Jetbrain` 中的其他软件也可以使用此配置。如何使用？
     - Win：请把该文件放到```C:\user\administrator``` , 也就是你当前使用的用户目录下。
-    - Linux or macOS：
+    - Linux or macOS：  
       ![Go home!Guys](https://github.com/aowoWolf/Vim_Config/blob/master/Resource/please_go_home.jpg?raw=true)
