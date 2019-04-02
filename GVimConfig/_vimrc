@@ -1,0 +1,121 @@
+let mapleader=" "  
+source $VIMRUNTIME/vimrc_example.vim
+"source $VIMRUNTIME/mswin.vim
+"behave mswin
+
+colorscheme desert
+set noundofile
+set nobackup
+set noswapfile
+set ts=4
+set expandtab
+set autoindent
+set enc=utf-8
+set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
+set langmenu=zh_CN.UTF-8	"设置菜单语言
+source $VIMRUNTIME/delmenu.vim    "导入删除菜单脚本，删除乱码的菜单
+source $VIMRUNTIME/menu.vim          "导入正常的菜单脚本
+language messages zh_CN.utf-8          "设置提示信息语言
+
+set number
+set diffexpr=MyDiff()
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      if empty(&shellxquote)
+        let l:shxq_sav = ''
+        set shellxquote&
+      endif
+      let cmd = '"' . $VIMRUNTIME . '\diff"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+  else
+    let cmd = $VIMRUNTIME . '\diff'
+  endif
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3
+  if exists('l:shxq_sav')
+    let &shellxquote=l:shxq_sav
+  endif
+endfunction
+
+" Tab operation
+nnoremap tn gt
+nnoremap tp gT
+
+" Quit insert mode
+inoremap jk <Esc>
+
+" Redo
+nnoremap U <C-r>
+
+" Quit visual mode
+vnoremap v <Esc>
+
+" Move half page faster
+nnoremap <Leader>d  <C-d>
+nnoremap <Leader>u  <C-u>
+
+" System clipboard
+vnoremap <Leader>y  "+y
+nnoremap <Leader>y  V"+y
+nnoremap <Leader>P  "*p
+
+" Window operation
+nnoremap <Leader>ww <C-W>w
+nnoremap <Leader>wc <C-W>c
+nnoremap <Leader>wo <C-W>o
+nnoremap <Leader>wj <C-W>j
+nnoremap <Leader>wk <C-W>k
+nnoremap <Leader>wh <C-W>h
+nnoremap <Leader>wl <C-W>l
+nnoremap <Leader>ws <C-W>s
+nnoremap <Leader>wv <C-W>v
+
+"vundle start
+set nocompatible              " 去除VI一致性,必须
+filetype off                  " 必须
+
+" 设置包括vundle和初始化相关的runtime path
+set rtp+=$VIM/vimfiles/bundle/Vundle.vim
+call vundle#begin()
+" 另一种选择, 指定一个vundle安装插件的路径
+"call vundle#begin('~/some/path/here')
+
+" 让vundle管理插件版本,必须
+Plugin 'VundleVim/Vundle.vim'
+"Plugin 'scrooloose/nerdtree'
+
+call vundle#end()            " 必须
+filetype plugin indent on    " 必须 加载vim自带和插件相应的语法和文件类型相关脚本
+
+"vundle end
+
+" 程序跳转
+set tags=tags
+set autochdir
+" 窗口管理
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+let g:winManagerWindowLayout='FileExplorer|TagList'
+nmap wm :WMToggle<cr>
+
+" 多文件编辑
+let g:miniBufExplMapCTabSwitchBufs=1
+let g:miniBufExplMapWindowsNavVim=1
+let g:miniBufExplMapWindowNavArrows=1
+
+"autocmd vimenter * NERDTree
+"set autochdir
+"let NERDTreeChDirMode=2
+"map <F2> :NERDTreeToggle<CR>
+"nerdtree end
