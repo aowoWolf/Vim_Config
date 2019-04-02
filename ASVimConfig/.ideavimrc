@@ -4,10 +4,7 @@ syntax enable "开启高亮
 set surround
 
 " Quit insert mode
-" inoremap jj <Esc>
 inoremap jk <Esc>
-" inoremap kj <Esc>
-" inoremap kk <Esc>
 
 " Quit visual mode
 vnoremap v <Esc>
@@ -29,14 +26,14 @@ nnoremap <Leader>y  V"+y
 nnoremap <Leader>P  "*p
 
 " Insert mode shortcut,可以考虑使用硬编程键盘代替以下处理方式，减少对左手小拇指的损伤
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
-inoremap <C-t> <Home>
-inoremap <C-e> <End>
-inoremap <C-;> <Delete>
-inoremap <C-p> <BS>
+" inoremap <C-h> <Left>
+" inoremap <C-j> <Down>
+" inoremap <C-k> <Up>
+" inoremap <C-l> <Right>
+" inoremap <C-t> <Home>
+" inoremap <C-e> <End>
+" inoremap <C-;> <Delete>
+" inoremap <C-p> <BS>
 
 "打开终端
 nnoremap <Leader>tl Vy<CR>:action ActivateTerminalToolWindow<CR>
@@ -97,3 +94,6 @@ nnoremap <Leader>l :action Forward<CR>
 "SurroundWith
 nnoremap <Leader>sw :action SurroundWith<CR>
 vnoremap <Leader>sw <Esc>gvhh:<bs><bs><bs><bs><bs>action VimVisualSwapSelections<cr>:action SurroundWith<CR>
+
+" 退出插入模式的时候，切换回系统的英文输入法
+:set keep-english-in-normal-and-restore-in-insert
