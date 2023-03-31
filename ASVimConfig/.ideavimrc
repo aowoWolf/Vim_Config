@@ -1,10 +1,49 @@
-let mapleader=" "  
+"Extensions
+Plug 'tpope/vim-surround'
+Plug 'preservim/nerdtree'
+Plug 'easymotion/vim-easymotion'
+set ideajoin
+ " ================================================================================================
+ "  Which-Key
+ " ================================================================================================
+ set which-key
+ set notimeout
+
+
+let mapleader=" "
 syntax enable "开启高亮
 
+set hlsearch "高亮显示搜索内容
+set incsearch "输入关键字的时候高亮显示
+set ignorecase "搜索时忽略大小写
+
 set surround
+set number relativenumber
+
+"let keep_input_source_in_normal="com.apple.keylayout.ABC"
+set keep-english-in-normal
+
+" idea specific settings
+set ideastatusicon=gray
+set idearefactormode=keep
+
+" 剪贴板设为系统"
+set clipboard=unnamedplus
+set backspace=2
+
+set ts=4
+set sw=4
+
+set autoindent
+
+" +c，关闭tab，类似 :q!"
+nnoremap <leader>q :q!<cr>
 
 " Quit insert mode
+" inoremap jj <Esc>
 inoremap jk <Esc>
+" inoremap kj <Esc>
+" inoremap kk <Esc>
 
 " Quit visual mode
 vnoremap v <Esc>
@@ -24,6 +63,9 @@ nnoremap <Leader>u  <C-u>
 vnoremap <Leader>y  "+y
 nnoremap <Leader>y  V"+y
 nnoremap <Leader>P  "*p
+vmap p  "_dp
+""" 保证剪贴板的内容可以一直p一直粘贴
+xnoremap p pgvy
 
 " Insert mode shortcut,可以考虑使用硬编程键盘代替以下处理方式，减少对左手小拇指的损伤
 " inoremap <C-h> <Left>
@@ -35,25 +77,25 @@ nnoremap <Leader>P  "*p
 " inoremap <C-;> <Delete>
 " inoremap <C-p> <BS>
 
-"打开终端
-nnoremap <Leader>tl Vy<CR>:action ActivateTerminalToolWindow<CR>
-vnoremap <Leader>tl y<CR>:action ActivateTerminalToolWindow<CR>
+nnoremap <Leader>tl Vy<CR>:action ActivateTerminalToolWindow<CR> "打开终端
+vnoremap <Leader>tl y<CR>:action ActivateTerminalToolWindow<CR> "打开终端
 
 nnoremap <Leader>ga :action GotoAction<CR>
 nnoremap <Leader>gc :action GotoClass<CR>
 nnoremap <Leader>gd :action GotoDeclaration<CR>
 nnoremap <Leader>gf :action GotoFile<CR>
-nnoremap <Leader>gi :action GotoImplementation<CR>
-nnoremap <Leader>gs :action GotoSymbol<CR>
-nnoremap <Leader>gt :action GotoTest<CR>
+nnoremap <Leader>gi :action GotoImplementation<CR>"跳转到实现处
+nnoremap <Leader>gs :action GotoSuperMethod<CR>
+" nnoremap <Leader>gt :action GotoTest<CR>
 
-nnoremap <Leader>re :action RenameElement<CR>
-nnoremap <Leader>rf :action RenameFile<CR>
+nnoremap <Leader>re :action RenameElement<CR>"重命名当前节点
+nnoremap <Leader>rf :action RenameFile<CR>"重命名FileName
 
 nnoremap <Leader>fu :action FindUsages<CR>
+nnoremap <Leader>ip :action FindInPath<CR>
 nnoremap <Leader>se :action SearchEverywhere<CR>
 nnoremap <Leader>su :action ShowUsages<CR>
-nnoremap <Leader>tc :action CloseActiveTab<CR>
+"" nnoremap <Leader>tc :action CloseActiveTab<CR>
 
 " Window operation
 nnoremap <Leader>ww <C-W>w
@@ -66,10 +108,10 @@ nnoremap <Leader>wl <C-W>l
 nnoremap <Leader>ws <C-W>s
 nnoremap <Leader>wv <C-W>v
 
-nnoremap <Leader>mv :action ActivateMavenProjectsToolWindow<CR>
+" nnoremap <Leader>mv :action ActivateMavenProjectsToolWindow<CR>
 
 "等同于ctrl + Alt + o
-nnoremap <Leader>oi :action OptimizeImports<CR>
+nnoremap <Leader>oi :action OptimizeImports<CR> "导报优化
 
 "等同于ctrl + Alt + F12
 nnoremap <Leader>fp :action ShowFilePath<CR>
@@ -82,18 +124,17 @@ nnoremap <Leader>cd :action ChooseDebugConfiguration<CR>
 
 nnoremap <Leader>sp :action Android.SyncProject<CR>
 
-"toggle
-nnoremap <C-A-;> :action ToggleDistractionFreeMode<CR>
-nnoremap <C-;> :action ToggleFullScreen<CR>
-nnoremap <A-;> :action TogglePresentationMode<CR>
+nnoremap <Leader>e :action ActivateProjectToolWindow<CR>
+
+"toggle AS中action列表找不到这三个action
+"nnoremap <C-A-;> :action ToggleDistractionFreeMode<CR>
+"nnoremap <C-;> :action ToggleFullScreen<CR>
+"nnoremap <A-;> :action TogglePresentationMode<CR>
 
 "Navigate
 nnoremap <Leader>h :action Back<CR>
 nnoremap <Leader>l :action Forward<CR>
 
 "SurroundWith
-nnoremap <Leader>sw :action SurroundWith<CR>
+noremap <Leader>sw :action SurroundWith<CR>
 vnoremap <Leader>sw <Esc>gvhh:<bs><bs><bs><bs><bs>action VimVisualSwapSelections<cr>:action SurroundWith<CR>
-
-" 退出插入模式的时候，切换回系统的英文输入法
-:set keep-english-in-normal-and-restore-in-insert

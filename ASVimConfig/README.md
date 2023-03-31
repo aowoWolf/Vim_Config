@@ -26,3 +26,9 @@
     - Win：请把该文件放到```C:\user\administrator``` , 也就是你当前使用的用户目录下。
     - Linux or macOS：  
       ![Go home!Guys](https://github.com/aowoWolf/Vim_Config/blob/master/Resource/please_go_home.jpg?raw=true)
+- jetBrain插件：
+	- Ideavim
+	- IdeaVim-EasyMotion
+	- IdeaVimExtension
+	- Which-Key
+	- AceJump
